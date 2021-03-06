@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 
 
 @Component({
@@ -9,7 +10,14 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginRegisterComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+ @Output() 
+ seLogueo : EventEmitter<boolean> = new EventEmitter<boolean>();
+ logueado = false
+
+  constructor(private fb: FormBuilder,
+    private router: Router) { 
+
+    }
 
   ngOnInit() {
     this.formGroup = this.fb.group({
@@ -21,26 +29,28 @@ export class LoginRegisterComponent implements OnInit {
 
   formGroup: FormGroup;
 
-  //clase = []
   activo: String = ""
   class = ['container', '']
 
   signInButton() {
     this.class = ['container']
-    //this.activo = ""
   }
 
   signUpButton() {
     this.class = ['container', 'right-panel-active']
-    //this.activo = "right-panel-active"
   }
 
   submitRegisterForm() {
-    //asd
+    localStorage.setItem("logueado","true")
+    this.emitirLogueo()
   }
 
   submitLoginForm() {
-    //asd
+   localStorage.setItem("logueado","true")
+    this.emitirLogueo()
+  }
+  emitirLogueo(){
+   this.seLogueo.emit(true)
   }
 
 }

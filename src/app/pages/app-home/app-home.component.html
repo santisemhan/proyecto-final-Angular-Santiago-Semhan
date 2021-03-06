@@ -1,0 +1,6 @@
+<router-outlet></router-outlet>
+<app-login-register *ngIf=!logueado (seLogueo)=recibir($event)></app-login-register>
+<div *ngIf=logueado>
+    <app-navbar (cerroSesion)="cerrarSesion($event)"></app-navbar>
+    <home></home>
+</div>

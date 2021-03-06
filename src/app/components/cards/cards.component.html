@@ -1,0 +1,21 @@
+<div class="container">
+<div class="product-card" *ngFor="let producto of productos">
+    <div class="badge">OFERTA</div>
+    <div class="product-tumb">
+        <img src="{{producto.photo_url}}" alt="">
+    </div>
+    <div class="product-details">
+        <span class="product-catagory">{{producto.stock}} EN STOCK</span>
+        <h4><a>{{producto.name}}</a></h4>
+        <p>{{producto.description}}</p>
+        <div class="product-bottom-details">
+            <div class="product-price"><small>${{producto.price - 10}}</small>${{producto.price}}</div>
+            <div class="product-links">
+                <a routerLink="/producto/{{producto.id}}"><strong>DETALLES</strong></a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+</div>
+

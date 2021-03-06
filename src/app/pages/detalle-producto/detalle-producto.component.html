@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<button class="btn btn-dark" style="margin-top: 7%; margin-left: 5%; padding: 5px;" routerLink="/">Volver</button>
+<div class="title"*ngIf="producto">
+    <div class="product-card">
+        <div class="badge">OFERTA</div>
+        <div class="product-tumb">
+            <img src="{{producto[0].photo_url}}" alt="">
+        </div>
+        <div class="rate">
+            <input type="radio" id="star5" name="rate" value="5" />
+            <label for="star5" title="text">5 stars</label>
+            <input type="radio" id="star4" name="rate" value="4" />
+            <label for="star4" title="text">4 stars</label>
+            <input type="radio" id="star3" name="rate" value="3" />
+            <label for="star3" title="text">3 stars</label>
+            <input type="radio" id="star2" name="rate" value="2" />
+            <label for="star2" title="text">2 stars</label>
+            <input type="radio" id="star1" name="rate" value="1" />
+            <label for="star1" title="text">1 star</label>
+        </div>
+        <div class="product-details">
+            <span class="product-catagory">{{producto[0].stock}} EN STOCK</span>
+            <h4><a>{{producto[0].name}}</a></h4>
+            <p>{{producto[0].description}}</p>
+            <div class="product-bottom-details">
+                <div class="product-price"><small>${{producto[0].price - 10}}</small>${{producto[0].price}}</div>
+                <div class="product-links">
+                    <a routerLink="/"><strong>COMPRAR</strong></a>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+
+
+
