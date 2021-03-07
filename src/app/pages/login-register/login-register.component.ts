@@ -21,8 +21,8 @@ export class LoginRegisterComponent implements OnInit {
 
   ngOnInit() {
     this.formGroup = this.fb.group({
-      email: '',
-      contraseña: '',
+      email: ['',[Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+      contraseña: ['',[Validators.required, Validators.minLength(5)]],
       contraseñaConfirmada: ''
     });
   }
@@ -31,6 +31,7 @@ export class LoginRegisterComponent implements OnInit {
 
   activo: String = ""
   class = ['container', '']
+  error = false
 
   signInButton() {
     this.class = ['container']
@@ -41,13 +42,26 @@ export class LoginRegisterComponent implements OnInit {
   }
 
   submitRegisterForm() {
-    localStorage.setItem("logueado","true")
-    this.emitirLogueo()
+    console.log(this.formGroup.value)
+    if(this.formGroup.value.contraseña == this.formGroup.value.contraseñaConfirmada && this.formGroup.value.contraseñaConfirmada != ''){
+      console.log("asd")
+      localStorage.setItem("logueado","true")
+      this.emitirLogueo()
+    }
+    else{
+      this.error = true
+    }
   }
 
   submitLoginForm() {
-   localStorage.setItem("logueado","true")
-    this.emitirLogueo()
+    if(this.formGroup.get('email').errors || this.formGroup.get('contraseña').errors ){
+     console.log("bruh")
+    }
+    else{
+      localStorage.setItem("logueado","true")
+     this.emitirLogueo()
+    }
+   
   }
   emitirLogueo(){
    this.seLogueo.emit(true)

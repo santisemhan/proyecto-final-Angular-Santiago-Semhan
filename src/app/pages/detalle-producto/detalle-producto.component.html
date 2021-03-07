@@ -1,7 +1,6 @@
 <app-navbar></app-navbar>
-<button class="btn btn-dark" style="margin-top: 7%; margin-left: 5%; padding: 5px;" routerLink="/">Volver</button>
 <div class="title"*ngIf="producto">
-    <div class="product-card">
+    <div class="product-card" style="margin-top: 10%;">
         <div class="badge">OFERTA</div>
         <div class="product-tumb">
             <img src="{{producto[0].photo_url}}" alt="">
@@ -23,9 +22,9 @@
             <h4><a>{{producto[0].name}}</a></h4>
             <p>{{producto[0].description}}</p>
             <div class="product-bottom-details">
-                <div class="product-price"><small>${{producto[0].price - 10}}</small>${{producto[0].price}}</div>
+                <div class="product-price"><small>${{producto[0].price}}</small>${{producto[0].price - 10}}</div>
                 <div class="product-links">
-                    <a routerLink="/"><strong>COMPRAR</strong></a>
+                    <a routerLink="/"><strong>VOLVER</strong></a>
                 </div>
             </div>
         </div>
