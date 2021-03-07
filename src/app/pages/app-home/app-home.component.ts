@@ -11,10 +11,11 @@ export class AppHomeComponent implements OnInit {
 
   constructor(private accountService: AccountService, private router: Router) { }
 
-  ngOnInit(): void {
-  }
+  logueado
 
-  logueado = this.accountService.isLogged()
+  ngOnInit(): void {
+    this.logueado = this.accountService.isLogged()
+  }
 
   cerrarSesion(){
     localStorage.setItem("logueado","false")

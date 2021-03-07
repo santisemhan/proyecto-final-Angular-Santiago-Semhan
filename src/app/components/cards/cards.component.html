@@ -7,9 +7,8 @@
     <div class="product-details">
         <span class="product-catagory">{{producto.stock}} EN STOCK</span>
         <h4><a>{{producto.name}}</a></h4>
-        <p>{{producto.description}}</p>
         <div class="product-bottom-details">
-            <div class="product-price"><small>${{producto.price - 10}}</small>${{producto.price}}</div>
+            <div class="product-price"><small>${{producto.price}}</small>${{producto.price - 10}}</div>
             <div class="product-links">
                 <a routerLink="/producto/{{producto.id}}"><strong>DETALLES</strong></a>
             </div>
